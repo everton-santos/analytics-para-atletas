@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public content: string
+  
+  constructor() {
+  }
+
+  setContent(message) {
+    this.content = message.content
+  }
 }
