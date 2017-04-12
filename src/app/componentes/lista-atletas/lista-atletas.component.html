@@ -1,5 +1,5 @@
 <md-nav-list class="lista-atletas">
-  <md-list-item *ngFor="let atleta of lista">
+  <md-list-item *ngFor="let atleta of lista" (click)="selecionar(atleta)">
     <h3 md-line> {{atleta.nome}} </h3>
     <p md-line>
       <span> {{atleta.esporte}} </span>

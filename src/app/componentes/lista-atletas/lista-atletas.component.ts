@@ -1,3 +1,4 @@
+import { Input, Output, EventEmitter } from '@angular/core';
 import { AtletaService } from './../../servicos/atleta.service';
 import { Atleta } from './../../models/atleta';
 import { Component, OnInit } from '@angular/core';
@@ -9,17 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAtletasComponent implements OnInit {
 
+  @Input()
   public lista: Array<Atleta>
 
-  constructor(private service: AtletaService) {
-    this.service.getAtletas('natação')
-      .subscribe(data => {
-        this.lista = data
-      })
+  @Output()
+  public selected = new EventEmitter<Atleta>()
+
+  constructor() {
   }
 
   ngOnInit() {
 
+  }
+
+  selecionar(atleta){
+    this.selected.emit(atleta)
   }
 
 }

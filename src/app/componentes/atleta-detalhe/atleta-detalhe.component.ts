@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Atleta } from './../../models/atleta';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-atleta-detalhe',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./atleta-detalhe.component.css']
 })
 export class AtletaDetalheComponent implements OnInit {
+
+  @Input()
+  public atleta: Atleta
 
   constructor() { }
 

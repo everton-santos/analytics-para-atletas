@@ -1,3 +1,5 @@
+import { routes } from './routes';
+import { RouterModule } from '@angular/router';
 import { AtletaService } from './servicos/atleta.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,12 +13,14 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import 'hammerjs';
 import { ListaAtletasComponent } from './componentes/lista-atletas/lista-atletas.component';
 import { AtletaDetalheComponent } from './componentes/atleta-detalhe/atleta-detalhe.component';
+import { AtletasComponent } from './componentes/atletas/atletas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaAtletasComponent,
-    AtletaDetalheComponent
+    AtletaDetalheComponent,
+    AtletasComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { AtletaDetalheComponent } from './componentes/atleta-detalhe/atleta-deta
     HttpModule,
     MaterialModule.forRoot(),
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule, 
+    RouterModule.forRoot(routes)
   ],
   providers: [AtletaService],
   bootstrap: [AppComponent]
