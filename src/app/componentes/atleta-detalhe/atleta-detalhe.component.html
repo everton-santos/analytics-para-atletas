@@ -5,14 +5,21 @@
         <md-card-subtitle>{{atleta.esporte}} - {{atleta.sexo}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
-        <div>
-            <h3>Batimento cardíaco x tempo de prova</h3>
+        <div fxLayout="row">
+            <div fxFlex>
+                <div>
+                    <h3>Batimento cardíaco x tempo de prova</h3>
+                </div>
+                <canvas baseChart width="400" height="150" [datasets]="graficoBatimentosData" [labels]="graficoBatimentosLabels" [options]="graficoBatimentosOpt"
+                    [legend]="true" chartType="line">
+                </canvas>
+            </div>
+            <div fxFlex>
+                <div>
+                    <h3>Analise geral do atleta</h3>
+                </div>
+                <canvas baseChart width="200" height="100" [datasets]="graficoAnaliseData" [labels]="graficoAnaliseLabels" chartType="radar"></canvas>
+            </div>
         </div>
-        <canvas baseChart width="400" height="400"
-                [datasets]="graficoBatimentosData"
-                [labels]="graficoBatimentosLabels"
-                [options]="graficoBatimentosOpt"
-                [legend]="true"
-                chartType="line"></canvas>
     </md-card-content>
 </md-card>

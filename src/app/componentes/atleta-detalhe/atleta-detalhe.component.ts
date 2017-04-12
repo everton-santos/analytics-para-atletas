@@ -14,6 +14,7 @@ export class AtletaDetalheComponent implements OnInit {
   @Input()
   public set atleta(val) {
     this._atleta = val
+    //cria dados aleatorios para o grafico
     this.doRadom()
   }
   public get atleta(): Atleta {
@@ -34,19 +35,37 @@ export class AtletaDetalheComponent implements OnInit {
     responsive: true
   };
 
+  public graficoAnaliseLabels: string[] = ['Resistência', 'Aceleração', 'Rendimento', 'Frequencia cardiaca', 'Impulso', 'Ritmo'];
+
+  public graficoAnaliseData: Array<any>;
+
+
   private doRadom() {
     this.graficoBatimentosData = [
-      { data: this.getRandomData(), label: 'Competição 1' },
-      { data: this.getRandomData(), label: 'Competição 2' },
-      { data: this.getRandomData(), label: 'Competição 3' }
+      { data: this.getRandomDataBatimentos(), label: 'Competição 1' },
+      { data: this.getRandomDataBatimentos(), label: 'Competição 2' },
+      { data: this.getRandomDataBatimentos(), label: 'Competição 3' }
+    ]
+    this.graficoAnaliseData = [
+      { data: this.getRandomDataAnalise(), label: 'Média' }
     ]
   }
 
-  private getRandomData() {
+  private getRandomDataBatimentos() {
     let data = []
 
     for (let idx = 0; idx < 8; idx++) {
       data.push(this.getRadomNumber(80 + (idx * 2), 90 + (idx * 2)))
+    }
+
+    return data
+  }
+
+  private getRandomDataAnalise() {
+    let data = []
+
+    for (let idx = 0; idx < 7; idx++) {
+      data.push(this.getRadomNumber(2, 10))
     }
 
     return data
