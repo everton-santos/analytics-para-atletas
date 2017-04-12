@@ -10,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAtletasComponent implements OnInit {
 
+  //define prop lista como input
   @Input()
   public lista: Array<Atleta>
 
+  //define output selected para trasmitir para o parent component quando um novo atleta for selecionado
   @Output()
   public selected = new EventEmitter<Atleta>()
 
@@ -24,6 +26,7 @@ export class ListaAtletasComponent implements OnInit {
   }
 
   selecionar(atleta){
+    //chama o output selected para avisar que um novo atleta foi selecionado
     this.selected.emit(atleta)
   }
 

@@ -1,3 +1,7 @@
 <md-card *ngIf="atleta">
-    {{atleta.nome}}
+    <md-card-header>
+        <img src="{{atleta.image}}" md-card-avatar class="header-image" />
+        <md-card-title>{{atleta.nome}}</md-card-title>
+        <md-card-subtitle>{{atleta.esporte}} - {{atleta.sexo}}</md-card-subtitle>
+    </md-card-header>
 </md-card>

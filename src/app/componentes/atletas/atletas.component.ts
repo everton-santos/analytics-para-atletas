@@ -19,12 +19,16 @@ export class AtletasComponent implements OnInit {
   constructor(private service: AtletaService) { }
 
   ngOnInit() {
+    //atualiza a lista ao iniciar o componente
     this.atualizar()
   }
 
   public atualizar() {
+    //limpa atleta selecionado
+    this.atletaSelecionado = null
+
     //chama getAtletas passando o esporte
-    this.service.getAtletas(this.esporte)
+    this.service.getAtletas(this.esporte, this.sexo != 'todos' ? this.sexo : null)
       //define o callback do getAtletas com o subscribe
       .subscribe(
       data => this.atletas = data,

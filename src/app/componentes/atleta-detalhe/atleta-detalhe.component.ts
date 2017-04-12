@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AtletaDetalheComponent implements OnInit {
 
+  //define propriedade atleta como input
   @Input()
   public atleta: Atleta
 

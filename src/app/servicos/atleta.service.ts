@@ -20,7 +20,7 @@ export class AtletaService {
    * 
    * @param esporte 
    */
-  public getAtletas(esporte: string): Observable<Array<Atleta>> {
+  public getAtletas(esporte: string, sexo?: string): Observable<Array<Atleta>> {
 
     //cria o observable a ser retornado como resultado
     let result = new Observable<Array<Atleta>>(observer => {
@@ -28,8 +28,14 @@ export class AtletaService {
       //cria lista a ser populada com o retorno do http
       let lista = new Array<Atleta>();
 
+      let url = this.urlServico + '?results=10';
+
+      if (sexo) {
+        url += '&gender=' + (sexo == 'masculino' ? 'male' : 'female')
+      }
+
       //faz requisição http da url do servidor retornando 10 resultados
-      this.http.get(this.urlServico + '?results=10')
+      this.http.get(url)
         //trata o resultado como um observable utilizando o subscribe
         .subscribe(response => {
           //passa o resultado para objeto utilizando o "json()" 
@@ -41,7 +47,8 @@ export class AtletaService {
               nome: `${element.name.first} ${element.name.last}`, //utilizando javascript template string para formatar o nome do atleta
               sexo: element.gender == 'male' ? 'masculino' : 'feminino', //utilizando if ternario para tratar o genero do atleta deixando-o em portugues
               dataNascimento: new Date(element.dob), //transforma a data de string para objeto de Date
-              esporte: esporte //atribui o esporte do atleta de acordo com o esporte passado como parametro 
+              esporte: esporte, //atribui o esporte do atleta de acordo com o esporte passado como parametro 
+              image: element.picture.medium
             })
           });
 
