@@ -4,4 +4,15 @@
         <md-card-title>{{atleta.nome}}</md-card-title>
         <md-card-subtitle>{{atleta.esporte}} - {{atleta.sexo}}</md-card-subtitle>
     </md-card-header>
+    <md-card-content>
+        <div>
+            <h3>Batimento cardíaco x tempo de prova</h3>
+        </div>
+        <canvas baseChart width="400" height="400"
+                [datasets]="graficoBatimentosData"
+                [labels]="graficoBatimentosLabels"
+                [options]="graficoBatimentosOpt"
+                [legend]="true"
+                chartType="line"></canvas>
+    </md-card-content>
 </md-card>

@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import 'hammerjs';
+import { ChartsModule } from 'ng2-charts';
+
+
 import { ListaAtletasComponent } from './componentes/lista-atletas/lista-atletas.component';
 import { AtletaDetalheComponent } from './componentes/atleta-detalhe/atleta-detalhe.component';
 import { AtletasComponent } from './componentes/atletas/atletas.component';
@@ -29,7 +32,8 @@ import { AtletasComponent } from './componentes/atletas/atletas.component';
     MaterialModule.forRoot(),
     BrowserAnimationsModule,
     FlexLayoutModule, 
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ChartsModule
   ],
   providers: [AtletaService],
   bootstrap: [AppComponent]

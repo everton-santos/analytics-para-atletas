@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AtletasComponent implements OnInit {
 
   public sexo: string = 'todos'
-  public esporte: string = 'natação'
+  public esporte: string = 'ciclismo'
   public atletas: Array<Atleta>
   public atletaSelecionado: Atleta
 
