@@ -1,0 +1,42 @@
+<div fxLayout="column" class="m">
+  <div fxLayout="row" class="m">
+    <md-card class="m" fxFlex>
+      <md-card-header>
+        Comparação velocidade ciclistas
+      </md-card-header>
+      <md-card-content>
+        <canvas baseChart width="400" height="200" [datasets]="graficoVelocidadeData" [labels]="graficoVelocidadeLabels" [options]="graficoOpt"
+          [legend]="true" chartType="bar">
+        </canvas>
+      </md-card-content>
+    </md-card>
+    <md-card class="m" fxFlex>
+      <md-card-header>
+        Comparação velocidade nadadores
+      </md-card-header>
+      <md-card-content>
+        <canvas baseChart width="400" height="200" [datasets]="graficoVelocidadeNadadoresData" [labels]="graficoVelocidadeNadadoresLabels" [options]="graficoOpt"
+          [legend]="true" chartType="bar">
+        </canvas>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div fxLayout="row" class="m">
+    <md-card class="m" fxFlex>
+      <md-card-header>
+        Top 5 ciclistas
+      </md-card-header>
+      <md-card-content>
+        <app-lista-atletas [lista]="ciclistas"></app-lista-atletas>
+      </md-card-content>
+    </md-card>
+    <md-card class="m" fxFlex>
+      <md-card-header>
+        Top 5 nadadores
+      </md-card-header>
+      <md-card-content>
+        <app-lista-atletas [lista]="nadadores"></app-lista-atletas>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

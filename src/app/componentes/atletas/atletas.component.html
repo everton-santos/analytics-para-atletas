@@ -1,5 +1,4 @@
 <md-toolbar>
-  <div fxFlex></div>
   <md-select placeholder="Esporte" class="m" [(ngModel)]="esporte">
     <md-option *ngFor="let esporte of ['ciclismo','natação','atletismo']" [value]="esporte">{{ esporte }}</md-option>
   </md-select>

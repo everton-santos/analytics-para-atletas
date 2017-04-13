@@ -17,13 +17,15 @@ import { ChartsModule } from 'ng2-charts';
 import { ListaAtletasComponent } from './componentes/lista-atletas/lista-atletas.component';
 import { AtletaDetalheComponent } from './componentes/atleta-detalhe/atleta-detalhe.component';
 import { AtletasComponent } from './componentes/atletas/atletas.component';
+import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaAtletasComponent,
     AtletaDetalheComponent,
-    AtletasComponent
+    AtletasComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

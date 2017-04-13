@@ -1,5 +1,6 @@
 import { Atleta } from './../../models/atleta';
 import { Component, OnInit, Input } from '@angular/core';
+import { Random } from '../../random';
 
 @Component({
   selector: 'app-atleta-detalhe',
@@ -55,7 +56,7 @@ export class AtletaDetalheComponent implements OnInit {
     let data = []
 
     for (let idx = 0; idx < 8; idx++) {
-      data.push(this.getRadomNumber(80 + (idx * 2), 90 + (idx * 2)))
+      data.push(Random.getRadomNumber(80 + (idx * 2), 90 + (idx * 2)))
     }
 
     return data
@@ -65,14 +66,9 @@ export class AtletaDetalheComponent implements OnInit {
     let data = []
 
     for (let idx = 0; idx < 7; idx++) {
-      data.push(this.getRadomNumber(2, 10))
+      data.push(Random.getRadomNumber(2, 10))
     }
 
     return data
   }
-
-  private getRadomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-
 }

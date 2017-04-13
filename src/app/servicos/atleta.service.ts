@@ -20,7 +20,7 @@ export class AtletaService {
    * 
    * @param esporte 
    */
-  public getAtletas(esporte: string, sexo?: string): Observable<Array<Atleta>> {
+  public getAtletas(esporte: string, sexo?: string, qtd: number = 10): Observable<Array<Atleta>> {
 
     //cria o observable a ser retornado como resultado
     let result = new Observable<Array<Atleta>>(observer => {
@@ -28,7 +28,7 @@ export class AtletaService {
       //cria lista a ser populada com o retorno do http
       let lista = new Array<Atleta>();
 
-      let url = this.urlServico + '?results=10';
+      let url = this.urlServico + '?results=' + qtd;
 
       if (sexo) {
         url += '&gender=' + (sexo == 'masculino' ? 'male' : 'female')
